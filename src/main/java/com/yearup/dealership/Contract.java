@@ -6,15 +6,17 @@ public abstract class Contract {
     private LocalDate contractDate;
     private String customerName;
     private String customerEmail;
-    private String vehicleSold;
-    private double price;
-    private double monthlyPayment;
+    private Vehicle vehicleSold;
+//    private double price;
+//    private double monthlyPayment;
 
-    public Contract(LocalDate contractDate, String customerName, String customerEmail, String vehicleSold) {
+    public Contract(LocalDate contractDate, String customerName, String customerEmail, Vehicle vehicleSold) {
         this.contractDate = contractDate;
         this.customerName = customerName;
         this.customerEmail = customerEmail;
         this.vehicleSold = vehicleSold;
+//        this.price = price;
+//        this.monthlyPayment = monthlyPayment;
     }
 
     public LocalDate getContractDate() {
@@ -41,20 +43,37 @@ public abstract class Contract {
         this.customerEmail = customerEmail;
     }
 
-    public String getVehicleSold() {
+    public Vehicle getVehicleSold() {
         return vehicleSold;
     }
 
-    public void setVehicleSold(String vehicleSold) {
+    public void setVehicleSold(Vehicle vehicleSold) {
         this.vehicleSold = vehicleSold;
     }
 
-    public void getTotalPrice(){
+//    public double getPrice() {
+//        return price;
+//    }
+//
+//    public void setPrice(double price) {
+//        this.price = price;
+//    }
+//
+//    public void setMonthlyPayment(double monthlyPayment) {
+//        this.monthlyPayment = monthlyPayment;
+//    }
 
+    public abstract double getMonthlyPayment();
+
+    public abstract double getTotalPrice();
+
+    @Override
+    public String toString() {
+        return "Contract{" +
+                "contractDate=" + contractDate +
+                ", customerName='" + customerName + '\'' +
+                ", customerEmail='" + customerEmail + '\'' +
+                ", vehicleSold='" + vehicleSold + '\'' +
+                '}';
     }
-
-    public void getMonthlyPayment(){
-
-    }
-
 }
